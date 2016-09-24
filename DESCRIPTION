@@ -14,6 +14,7 @@ Imports:
 LazyData: true
 Collate:
     'batch.R'
+    'cuutils-package.r'
     'golden_ration.r'
     'internals.R'
     'utils.R'
