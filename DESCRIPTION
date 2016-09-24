@@ -1,9 +1,20 @@
 Package: cuutils
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.3.1)
-License: What license is it under?
+Title: Bits and Pieces I Didn't Find a Serious Place to Put to
+Version: 0.0.0.9001
+Authors@R: person(given = c("Andreas", "Dominik"), family = "Cullmann",
+    email = "dominik.cullmann@forst.bwl.de", role = c("aut","cre"))
+Description: Well, different stuff. Nothing really interesting in particular,
+    but hopefully helpful helpers.
+Depends:
+    R (>= 3.3.1)
+License: file LICENSE
 Encoding: UTF-8
+Imports:
+    checkmate
 LazyData: true
+Collate:
+    'batch.R'
+    'golden_ration.r'
+    'internals.R'
+    'utils.R'
+RoxygenNote: 5.0.1

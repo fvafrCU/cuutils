@@ -1,2 +1,11 @@
 ^.*\.Rproj$
+^.*\.RData$
+^.*\.Rout$
+^.*\.tar\.gz$
+^tmp.*$
 ^\.Rproj\.user$
+^.gitignore$
+^configure$
+^Makefile$
+.git/
+^.*\.Rcheck/
