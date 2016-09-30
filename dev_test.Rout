@@ -1,2 +1,5 @@
-Error: No testthat directories found in /home/qwer/git/cyclops/fvafrcu/cuutils
-Execution halted
+Loading cuutils
+Loading required package: testthat
+Testing cuutils
+golden ratio: ....
+

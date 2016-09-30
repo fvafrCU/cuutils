@@ -6,7 +6,7 @@ PKGSRC  := $(shell basename `pwd`)
 
 roxy_code := tmp_roxy.r
 temp_file := $(shell tempfile)
-test_changes_file := tmp_test_change.R
+test_changes_file := utils/test_change.R
 
 # devtools
 dev_all: dev_test dev_check

@@ -8,3 +8,5 @@
 ^Makefile$
 .git/
 ^.*\.Rcheck/
+^utils/
+^utils$
