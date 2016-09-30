@@ -24,4 +24,3 @@ throw <- function(message_string, system_call = sys.call(-1), ...) {
     stop(condition)
     return(FALSE)
 }
-

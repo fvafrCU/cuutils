@@ -21,10 +21,9 @@ golden_ratio  <- function(value = 1, quantity = "a + b") {
            },
            "a + b" = {
                a <- value / phi
-               b <- a * phi - a 
+               b <- a * phi - a
            },
            throw('quantity not in "a", "b" or "a + b"')
            )
     return(c("a" = a, "b" = b, "a + b" = a + b))
 }
-

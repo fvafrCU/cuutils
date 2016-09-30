@@ -1,1 +1,7 @@
-no code files with modified git status found.
+Loading cuutils
+Loading required package: testthat
+Testing cuutils
+Error in test_files(paths, reporter = reporter, env = env, ...) : 
+  No matching test file in dir
+Calls: <Anonymous> -> <Anonymous> -> force -> <Anonymous> -> test_files
+Execution halted

@@ -10,3 +10,4 @@
 ^.*\.Rcheck/
 ^utils/
 ^utils$
+^package_tools$

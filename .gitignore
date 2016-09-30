@@ -5,3 +5,4 @@ tmp*
 .RData
 *\.Rcheck
 *\.tar\.gz
+package_tools

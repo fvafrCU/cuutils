@@ -7,6 +7,7 @@ PKGSRC  := $(shell basename `pwd`)
 roxy_code := tmp_roxy.r
 temp_file := $(shell tempfile)
 test_changes_file := utils/test_change.R
+package_tools_file := utils/package_tools.R
 
 # devtools
 dev_all: dev_test dev_check
@@ -68,6 +69,10 @@ roxy:
 	printf "devtools::load_all()\n" > ${roxy_code}
 	printf "roxygen2::roxygenize('.', roclets = c('rd'))\n" >> ${roxy_code}
 	R --vanilla CMD BATCH --vanilla ${roxy_code}
+
+.PHONY: package_tools
+package_tools:
+	Rscript --vanilla ${package_tools_file}
 
 # from https://raw.githubusercontent.com/yihui/knitr/master/Makefile
 deps:

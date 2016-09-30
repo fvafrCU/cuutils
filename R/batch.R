@@ -7,7 +7,7 @@
 #' get_R_CMD_BATCH_script_path()
 get_R_CMD_BATCH_script_path <- function() {
     r_call <- commandArgs(trailingOnly = FALSE)
-    path <- r_call[which(r_call == "-f") + 1] 
+    path <- r_call[which(r_call == "-f") + 1]
     return(path)
 }
 
@@ -35,9 +35,7 @@ get_Rscript_script_path <- function() {
 #' @examples
 #' get_script_path()
 get_script_path <- function() {
-    path <- c(get_R_CMD_BATCH_script_path(),
-	      get_Rscript_script_path()
-	      )
+    path <- c(get_R_CMD_BATCH_script_path(), get_Rscript_script_path())
     return(path)
 }
 
@@ -93,13 +91,10 @@ provide_output_directory <- function(type = "graphics", path  = ".") {
     checkmate::assertString(type)
     checkmate::assertString(path)
     status <- FALSE
-    directory <- file.path(path , 
-				paste(get_script_name(), type, sep = "_")
-				)
+    directory <- file.path(path, paste(get_script_name(), type, sep = "_"))
     directory_name <- paste(type, "directory", sep = "_")
     assign(directory_name, directory, envir = parent.frame())
     if (! file.exists(directory)) dir.create(directory)
     status <- TRUE
-    return(invisible(NULL))
+    return(invisible(status))
 }
-
