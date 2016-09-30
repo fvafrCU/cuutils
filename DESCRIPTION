@@ -14,8 +14,8 @@ Imports:
 LazyData: true
 Collate:
     'batch.R'
-    'cuutils-package.r'
-    'golden_ration.r'
+    'cuutils-package.R'
+    'golden_ration.R'
     'internals.R'
     'utils.R'
 RoxygenNote: 5.0.1

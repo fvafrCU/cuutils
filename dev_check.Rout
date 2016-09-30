@@ -1,6 +1,5 @@
 Updating cuutils documentation
 Loading cuutils
-Writing golden_ratio.Rd
 Setting env vars --------------------------------------------------------------
 CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
@@ -12,7 +11,7 @@ Building cuutils --------------------------------------------------------------
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files
 * checking for empty or unneeded directories
-* building ‘cuutils_0.0.0.9000.tar.gz’
+* building ‘cuutils_0.0.0.9001.tar.gz’
 
 Setting env vars --------------------------------------------------------------
 _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
@@ -26,7 +25,7 @@ Checking cuutils --------------------------------------------------------------
 * using session charset: UTF-8
 * using options ‘--no-manual --as-cran’
 * checking for file ‘cuutils/DESCRIPTION’ ... OK
-* this is package ‘cuutils’ version ‘0.0.0.9000’
+* this is package ‘cuutils’ version ‘0.0.0.9001’
 * package encoding: UTF-8
 * checking package namespace information ... OK
 * checking package dependencies ... OK
