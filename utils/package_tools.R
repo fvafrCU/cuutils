@@ -1,3 +1,4 @@
+if (interactive()) setwd(dirname(getwd()))
 options(warn = 1) # make warnings appear immediately
 
 output_directory <- "package_tools"
@@ -46,3 +47,4 @@ for (source_file in files) {
         message(tidy_file, " has only ", length(tidy_lints), " lints. See ",
                 tidy_lints_file, ".")
 }
+coldr::check_directory("R/", recursive = TRUE)
