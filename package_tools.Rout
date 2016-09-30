@@ -1,0 +1,52 @@
+Congratulations: no lints found.
+
+working on R/batch.R
+no lints found.
+
+working on R/cuutils-package.R
+no lints found.
+
+working on R/golden_ration.R
+no lints found.
+
+working on R/internals.R
+no lints found.
+
+working on R/utils.R
+no lints found.
+
+working on tests/testthat/test_golden_ratio.R
+no lints found.
+
+working on utils/package_tools.R
+no lints found.
+
+working on utils/test_change.R
+no lints found.
+Warning in check_return(object) :
+  Just checking for a line starting with a return statement.
+  This is no check for all return paths being explicit.
+Warning in check_return(object) :
+  Just checking for a line starting with a return statement.
+  This is no check for all return paths being explicit.
+Warning in check_return(object) :
+  Just checking for a line starting with a return statement.
+  This is no check for all return paths being explicit.
+Warning in check_return(object) :
+  Just checking for a line starting with a return statement.
+  This is no check for all return paths being explicit.
+Warning in check_return(object) :
+  Just checking for a line starting with a return statement.
+  This is no check for all return paths being explicit.
+Warning in check_return(object) :
+  Just checking for a line starting with a return statement.
+  This is no check for all return paths being explicit.
+Warning in check_return(object) :
+  Just checking for a line starting with a return statement.
+  This is no check for all return paths being explicit.
+Warning in check_return(object) :
+  Just checking for a line starting with a return statement.
+  This is no check for all return paths being explicit.
+Warning in check_return(object) :
+  Just checking for a line starting with a return statement.
+  This is no check for all return paths being explicit.

@@ -47,4 +47,5 @@ for (source_file in files) {
         message(tidy_file, " has only ", length(tidy_lints), " lints. See ",
                 tidy_lints_file, ".")
 }
+coldr::set_coldr_options(max_arguments = 6)
 coldr::check_directory("R/", recursive = TRUE)

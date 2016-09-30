@@ -72,7 +72,8 @@ roxy:
 
 .PHONY: package_tools
 package_tools:
-	Rscript --vanilla ${package_tools_file}
+	Rscript --vanilla ${package_tools_file} > package_tools.Rout 2>&1 
+
 
 # from https://raw.githubusercontent.com/yihui/knitr/master/Makefile
 deps:
