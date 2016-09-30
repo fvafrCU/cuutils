@@ -5,7 +5,6 @@
 ^tmp.*$
 ^\.Rproj\.user$
 ^.gitignore$
-^configure$
 ^Makefile$
 .git/
 ^.*\.Rcheck/
