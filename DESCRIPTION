@@ -1,6 +1,6 @@
 Package: cuutils
 Title: Bits and Pieces I Didn't Find a Serious Place to Put to
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: person(given = c("Andreas", "Dominik"), family = "Cullmann",
     email = "dominik.cullmann@forst.bwl.de", role = c("aut","cre"))
 Description: Well, different stuff. Nothing really interesting in particular,
