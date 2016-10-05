@@ -1,10 +1,9 @@
 Package: cuutils
-Title: Bits and Pieces I Didn't Find a Serious Place to Put to
-Version: 0.0.0.9003
+Title: Utility Functions by and for Andreas Dominik Cullmann 
+Version: 0.0.0.9004
 Authors@R: person(given = c("Andreas", "Dominik"), family = "Cullmann",
     email = "dominik.cullmann@forst.bwl.de", role = c("aut","cre"))
-Description: Well, different stuff. Nothing really interesting in particular,
-    but hopefully helpful helpers.
+Description: Bits and pieces I didn't find a serious place to put to.
 Depends:
     R (>= 3.3.1)
 Suggests: 
