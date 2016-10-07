@@ -29,6 +29,8 @@ dev_check:
 
 
 # R CMD 
+all: craninstall clean
+
 craninstall: crancheck
 	R --vanilla CMD INSTALL  ${PKGNAME}_${PKGVERS}.tar.gz
 
