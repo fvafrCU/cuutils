@@ -3,7 +3,6 @@ PKGNAME := $(shell sed -n "s/Package: *\([^ ]*\)/\1/p" DESCRIPTION)
 PKGVERS := $(shell sed -n "s/Version: *\([^ ]*\)/\1/p" DESCRIPTION)
 PKGSRC  := $(shell basename `pwd`)
 
-
 temp_file := $(shell tempfile)
 test_changes_file := utils/test_change.R
 package_tools_file := utils/package_tools.R
@@ -64,10 +63,19 @@ build: roxy
 direct_check:  
 	R --vanilla CMD check ../${PKGSRC} ## check without build -- not recommended
 
+
+# utils
 roxy:
 	R --vanilla -e 'roxygen2::roxygenize(".")'
 
 .PHONY: package_tools
 package_tools:
 	Rscript --vanilla ${package_tools_file} > package_tools.Rout 2>&1 
+
+clean:
+	rm -rf ${PKGNAME}.Rcheck
+
+remove:
+	 R --vanilla CMD REMOVE  ${PKGNAME}
+
 
