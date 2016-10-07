@@ -4,7 +4,6 @@ PKGVERS := $(shell sed -n "s/Version: *\([^ ]*\)/\1/p" DESCRIPTION)
 PKGSRC  := $(shell basename `pwd`)
 
 
-roxy_code := tmp_roxy.r
 temp_file := $(shell tempfile)
 test_changes_file := utils/test_change.R
 package_tools_file := utils/package_tools.R
@@ -28,6 +27,7 @@ dev_check:
 	rm ${temp_file} || TRUE; \
 	Rscript --vanilla -e 'devtools::check()' > ${temp_file} 2>&1; \
 	grep -v ".*'/" ${temp_file} | grep -v ".*/tmp/R.*" > dev_check.Rout 
+
 
 # R CMD 
 craninstall: crancheck
@@ -65,19 +65,9 @@ direct_check:
 	R --vanilla CMD check ../${PKGSRC} ## check without build -- not recommended
 
 roxy:
-	rm man/* || true
-	printf "devtools::load_all()\n" > ${roxy_code}
-	printf "roxygen2::roxygenize('.', roclets = c('rd'))\n" >> ${roxy_code}
-	R --vanilla CMD BATCH --vanilla ${roxy_code}
+	R --vanilla -e 'roxygen2::roxygenize(".")'
 
 .PHONY: package_tools
 package_tools:
 	Rscript --vanilla ${package_tools_file} > package_tools.Rout 2>&1 
 
-
-# from https://raw.githubusercontent.com/yihui/knitr/master/Makefile
-deps:
-	Rscript -e 'if (!require("Rd2roxygen")) install.packages("Rd2roxygen", repos="http://cran.rstudio.com")'
-
-docs:
-	R -q -e 'Rd2roxygen::roxygen_and_build(".", build = FALSE)'
