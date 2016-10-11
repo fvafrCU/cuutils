@@ -10,7 +10,7 @@ Suggests:
     roxygen2, 
     Rd2roxygen, 
     testthat
-License: file LICENSE
+License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 Imports:
     checkmate
