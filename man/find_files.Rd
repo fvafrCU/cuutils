@@ -33,4 +33,3 @@ files with \code{\link{list.files}} and throw an error if no files are found.
 This is merely a wrapper around \code{\link{file.exists}} or 
       \code{\link{list.files}}, depending on wheter file_names is given.
 }
-

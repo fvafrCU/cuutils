@@ -15,4 +15,3 @@ is R run in batch mode (via R CMD BATCH or Rscript)?
 \examples{
 is_batch()
 }
-

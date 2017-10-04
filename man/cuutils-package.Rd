@@ -12,4 +12,3 @@ but hopefully helpful helpers.
 Andreas Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
 }
 \keyword{package}
-

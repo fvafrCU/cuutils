@@ -16,4 +16,3 @@ get the path of the R code file in case of an Rscript run.
 \examples{
 get_Rscript_script_path()
 }
-

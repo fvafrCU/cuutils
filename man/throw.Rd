@@ -31,4 +31,3 @@ tryCatch(cuutils:::throw("Hello error!"),
 Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
 }
 \keyword{internal}
-

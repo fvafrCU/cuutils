@@ -27,4 +27,3 @@ content  '\code{path}/\code{scriptName}_type' in .GlobalEnv and the directory
 \examples{
 provide_output_directory()
 }
-

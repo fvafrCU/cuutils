@@ -22,4 +22,3 @@ even if you're working with code stored in a (named) file on disk.
 \examples{
 get_script_name(default = 'foobar.R')
 }
-

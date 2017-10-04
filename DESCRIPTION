@@ -15,10 +15,11 @@ Encoding: UTF-8
 Imports:
     checkmate
 LazyData: true
-Collate:
+Collate: 
     'batch.R'
     'cuutils-package.R'
     'golden_ration.R'
     'internals.R'
     'utils.R'
-RoxygenNote: 5.0.1
+    'wipe_clean.R'
+RoxygenNote: 6.0.1
