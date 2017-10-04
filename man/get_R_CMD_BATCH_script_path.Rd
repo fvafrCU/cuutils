@@ -16,4 +16,3 @@ get the path of the R code file in case of an R CMD BATCH run.
 \examples{
 get_R_CMD_BATCH_script_path()
 }
-

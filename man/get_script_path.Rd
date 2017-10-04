@@ -18,4 +18,3 @@ This is just a wrapper for \code{\link{get_Rscript_script_path}} and
 \examples{
 get_script_path()
 }
-

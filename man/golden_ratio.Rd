@@ -22,4 +22,3 @@ Calculate the Golden Ratio
 golden_ratio(10)
 golden_ratio(golden_ratio(10)[["a"]], "a + b")
 }
-
