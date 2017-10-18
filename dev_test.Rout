@@ -1,4 +1,5 @@
 Loading cuutils
+Updating collate directive in  /home/nik/git/cs/fvafrcu/cuutils/DESCRIPTION 
 Loading required package: testthat
 Testing cuutils
 golden ratio: ....

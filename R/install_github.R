@@ -2,6 +2,8 @@ install_github <- function(github_repo) {
     if (.Platform$OS.type != "windows") {
         devtools::install_github(github_repo)
     } else {
+        old_wd <- setwd(tempdir())
+        on.exit(setwd(old_wd))
         repo <- unlist(strsplit(github_repo, split = "/"))
         local_directory <- tempdir()
         local_path <- file.path(local_directory, "master.zip")
