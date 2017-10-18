@@ -1,6 +1,6 @@
 Updating cuutils documentation
 Loading cuutils
-Writing install_github.Rd
+Updating roxygen version in /home/nik/git/cs/fvafrcu/cuutils/DESCRIPTION
 Setting env vars --------------------------------------------------------------
 CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
