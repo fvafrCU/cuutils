@@ -13,7 +13,7 @@ Suggests:
 License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 Imports:
-    checkmate
+    checkmate, utils, devtools
 LazyData: true
 Collate: 
     'batch.R'
@@ -21,7 +21,6 @@ Collate:
     'golden_ration.R'
     'install_github.R'
     'internals.R'
-    'sink_all.R'
     'utils.R'
     'wipe_clean.R'
 RoxygenNote: 6.0.1

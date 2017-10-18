@@ -1,7 +1,6 @@
 Updating cuutils documentation
 Loading cuutils
-Writing NAMESPACE
-Writing sink_all.Rd
+Writing install_github.Rd
 Setting env vars --------------------------------------------------------------
 CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
@@ -59,22 +58,11 @@ Package suggested but not available for checking: ‘Rd2roxygen’
 * checking whether the namespace can be loaded with stated dependencies ... OK
 * checking whether the namespace can be unloaded cleanly ... OK
 * checking loading without being on the library search path ... OK
-* checking dependencies in R code ... WARNING
-'::' or ':::' import not declared from: ‘devtools’
+* checking dependencies in R code ... OK
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... NOTE
-install_github: no visible global function definition for
-  ‘download.file’
-install_github: no visible global function definition for ‘unzip’
-install_github: no visible global function definition for
-  ‘install.packages’
-Undefined global functions or variables:
-  download.file install.packages unzip
-Consider adding
-  importFrom("utils", "download.file", "install.packages", "unzip")
-to your NAMESPACE file.
+* checking R code for possible problems ... OK
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
@@ -84,69 +72,15 @@ to your NAMESPACE file.
 * checking Rd \usage sections ... OK
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
-* checking examples ... ERROR
-Running examples in ‘cuutils-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: sink_all
-> ### Title: Divert Message And Output Stream to File
-> ### Aliases: sink_all
-> 
-> ### ** Examples
-> 
-> sink_path  <- file.path(tempdir(), "sink_all.txt")
-> sink_all(sink_path, {
-+          print("some output")
-+          warning("a warning")
-+          message("a message")
-+          stop("an error")
-+          print("This won't get sinked.")
-+ })
-Execution halted
+* checking examples ... OK
 * DONE
 
-Status: 1 ERROR, 1 WARNING, 2 NOTEs
+Status: 1 NOTE
 See
 for details.
 
+
 R CMD check results
-1 error  | 1 warning  | 2 notes
-checking examples ... ERROR
-Running examples in ‘cuutils-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: sink_all
-> ### Title: Divert Message And Output Stream to File
-> ### Aliases: sink_all
-> 
-> ### ** Examples
-> 
-> sink_path  <- file.path(tempdir(), "sink_all.txt")
-> sink_all(sink_path, {
-+          print("some output")
-+          warning("a warning")
-+          message("a message")
-+          stop("an error")
-+          print("This won't get sinked.")
-+ })
-Execution halted
-
-checking dependencies in R code ... WARNING
-'::' or ':::' import not declared from: ‘devtools’
-
+0 errors | 0 warnings | 1 note 
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘Rd2roxygen’
-
-checking R code for possible problems ... NOTE
-install_github: no visible global function definition for
-  ‘download.file’
-install_github: no visible global function definition for ‘unzip’
-install_github: no visible global function definition for
-  ‘install.packages’
-Undefined global functions or variables:
-  download.file install.packages unzip
-Consider adding
-  importFrom("utils", "download.file", "install.packages", "unzip")
-to your NAMESPACE file.
