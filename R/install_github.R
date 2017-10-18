@@ -1,5 +1,5 @@
 install_github <- function(github_repo) {
-    if (.Platform$OS.type == "windows") {
+    if (.Platform$OS.type != "windows") {
         devtools::install_github(github_repo)
     } else {
         repo <- unlist(strsplit(github_repo, split = "/"))
