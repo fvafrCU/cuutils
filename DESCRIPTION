@@ -21,6 +21,7 @@ Collate:
     'golden_ration.R'
     'install_github.R'
     'internals.R'
+    'system.R'
     'utils.R'
     'wipe_clean.R'
 RoxygenNote: 6.0.1
