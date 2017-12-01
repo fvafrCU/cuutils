@@ -1,4 +1,4 @@
-#' Install packages from github at fvafr
+#' Install Packages From Github at FVAFR
 #'
 #' At fvafr curl under windows doesn't work properly. Maybe the proxy isn't set
 #' properly. So this functions uses
