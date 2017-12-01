@@ -1,16 +1,17 @@
 install_cran <- function(package = "excerptr", 
                          repos = "http://cran.r-project.org",
                          ignore_ostype = TRUE, 
-                         ignore_r_version = TRUE ) {
+                         ignore_r_version = TRUE) {
     old_options <- options(warn = 2) 
     res <- tryCatch(utils::install.packages(package, repos = repos), 
                     error = identity) 
     options(old_options)
     if (inherits(res, "error")) {
         root <- paste0(repos, "/src/contrib/")
-        local_rds <- file.path(tempdir(), "PACKAGES.rds")
-        download.file(paste0(root, "PACKAGES.rds"), local_rds)
-        packages <- readRDS(local_rds)
+        packages_list_file <- "PACKAGES.gz"
+        package_list <- file.path(tempdir(), packages_list_file)
+        download.file(paste0(root, packages_list_file), package_list)
+        packages <- read.dcf(package_list)
         i <- which(packages[TRUE, "Package"] == package)
         tarball <- paste0(paste(package, packages[i, "Version"], sep = "_"), 
                           ".tar.gz")
