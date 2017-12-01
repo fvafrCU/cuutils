@@ -16,7 +16,6 @@ install_cran <- function(package = "excerptr",
         version <- as.character(packages[i, "Version"])
         tarball <- paste0(paste(package, version, sep = "_"), 
                           ".tar.gz")
-        message(tarball)
         remote_tarball <- paste(root, tarball, sep = "/")
         local_tarball <- file.path(tempdir(), tarball)
         download.file(remote_tarball, local_tarball)
