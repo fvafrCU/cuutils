@@ -1,13 +1,26 @@
+#' Forced Installation of CRAN Packages
+#'
+#' \code{\link[utils:install.packages]{install.packages} will not let you
+#' install packages that require a higher R version as yours a that are speific
+#' to an operating system. \pkg{excerptr} is such a case. This function lets you
+#' install it anyways. Of course you have to deal with dependencies yourself
+#' (\pkg{rPython}, in this case).
+#' @param repository The repository to use. Stick to the default, which is CRAN.
+#' @param ignore_ostype Ignore operation system type required in the
+#' DESCRIPTION?
+#' @param ignore_r_version Ignore R version required in the DESCRIPTION?
+#' @return The value of \code{\link[utils:install.packages]{install.packages}}.
+#' @export 
 install_cran <- function(package = "excerptr", 
-                         repos = "http://cran.r-project.org",
+                         repository = "http://cran.r-project.org",
                          ignore_ostype = TRUE, 
                          ignore_r_version = TRUE) {
     old_options <- options(warn = 2) 
-    res <- tryCatch(utils::install.packages(package, repos = repos), 
+    res <- tryCatch(utils::install.packages(package, repos = repository), 
                     error = identity) 
     options(old_options)
     if (inherits(res, "error")) {
-        root <- paste0(repos, "/src/contrib/")
+        root <- paste0(repository, "/src/contrib/")
         packages_list_file <- "PACKAGES.gz"
         package_list <- file.path(tempdir(), packages_list_file)
         download.file(paste0(root, packages_list_file), package_list)

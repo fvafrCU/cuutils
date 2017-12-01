@@ -1,5 +1,9 @@
 Updating cuutils documentation
 Loading cuutils
+Warning: @description [install_cran.R#1]: mismatched braces or quotes
+Writing NAMESPACE
+Writing install_cran.Rd
+Writing install_github.Rd
 Setting env vars --------------------------------------------------------------
 CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
@@ -74,25 +78,47 @@ Undefined global functions or variables:
 Consider adding
   importFrom("utils", "download.file")
 to your NAMESPACE file.
-* checking Rd files ... OK
+* checking Rd files ... WARNING
+checkRd: (5) install_cran.Rd:0-21: Must have a \description
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... OK
 * checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... OK
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'install_cran'
+  ‘package’
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
 * checking examples ... OK
 * DONE
 
-Status: 4 NOTEs
+Status: 2 WARNINGs, 4 NOTEs
 See
 for details.
 
 
 R CMD check results
-0 errors | 0 warnings | 4 notes
+0 errors | 2 warnings | 4 notes
+checking Rd files ... WARNING
+checkRd: (5) install_cran.Rd:0-21: Must have a \description
+
+checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'install_cran'
+  ‘package’
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
+
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘Rd2roxygen’
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/install_github.R
 \name{install_github}
 \alias{install_github}
-\title{Install packages from github at fvafr}
+\title{Install Packages From Github at FVAFR}
 \usage{
 install_github(github_repo, ignore_ostype = TRUE, ignore_r_version = TRUE)
 }
