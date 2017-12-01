@@ -13,7 +13,7 @@ install_cran <- function(package = "excerptr",
         download.file(paste0(root, packages_list_file), package_list)
         packages <- read.dcf(package_list)
         i <- which(packages[TRUE, "Package"] == package)
-        version <- as.charcater(packages[i, "Version"])
+        version <- as.character(packages[i, "Version"])
         tarball <- paste0(paste(package, version, sep = "_"), 
                           ".tar.gz")
         message(tarball)
