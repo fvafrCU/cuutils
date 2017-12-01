@@ -19,6 +19,7 @@ Collate:
     'batch.R'
     'cuutils-package.R'
     'golden_ration.R'
+    'install_cran.R'
     'install_github.R'
     'internals.R'
     'system.R'

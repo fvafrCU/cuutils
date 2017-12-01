@@ -1,6 +1,5 @@
 Updating cuutils documentation
 Loading cuutils
-Updating roxygen version in /home/nik/git/cs/fvafrcu/cuutils/DESCRIPTION
 Setting env vars --------------------------------------------------------------
 CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
@@ -39,14 +38,20 @@ Package suggested but not available for checking: ‘Rd2roxygen’
 * checking if this is a source package ... OK
 * checking if there is a namespace ... OK
 * checking for executable files ... OK
-* checking for hidden files and directories ... OK
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .travis.yml
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
 * checking for portable file names ... OK
 * checking for sufficient/correct file permissions ... OK
 * checking whether package ‘cuutils’ can be installed ... OK
 * checking installed package size ... OK
 * checking package directory ... OK
 * checking DESCRIPTION meta-information ... OK
-* checking top-level files ... OK
+* checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  ‘TODO.md’
 * checking for left-over files ... OK
 * checking index information ... OK
 * checking package subdirectories ... OK
@@ -62,7 +67,13 @@ Package suggested but not available for checking: ‘Rd2roxygen’
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... OK
+* checking R code for possible problems ... NOTE
+install_cran: no visible global function definition for ‘download.file’
+Undefined global functions or variables:
+  download.file
+Consider adding
+  importFrom("utils", "download.file")
+to your NAMESPACE file.
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
@@ -75,12 +86,30 @@ Package suggested but not available for checking: ‘Rd2roxygen’
 * checking examples ... OK
 * DONE
 
-Status: 1 NOTE
+Status: 4 NOTEs
 See
 for details.
 
 
 R CMD check results
-0 errors | 0 warnings | 1 note 
+0 errors | 0 warnings | 4 notes
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘Rd2roxygen’
+
+checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .travis.yml
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+
+checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  ‘TODO.md’
+
+checking R code for possible problems ... NOTE
+install_cran: no visible global function definition for ‘download.file’
+Undefined global functions or variables:
+  download.file
+Consider adding
+  importFrom("utils", "download.file")
+to your NAMESPACE file.
