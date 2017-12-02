@@ -25,7 +25,7 @@ install_cran <- function(package = "excerptr",
         root <- paste0(repository, "/src/contrib/")
         packages_list_file <- "PACKAGES.gz"
         package_list <- file.path(tempdir(), packages_list_file)
-        download.file(paste0(root, packages_list_file), package_list)
+        utils::download.file(paste0(root, packages_list_file), package_list)
         packages <- read.dcf(package_list)
         i <- which(packages[TRUE, "Package"] == package)
         version <- as.character(packages[i, "Version"])
@@ -33,7 +33,7 @@ install_cran <- function(package = "excerptr",
                           ".tar.gz")
         remote_tarball <- paste(root, tarball, sep = "/")
         local_tarball <- file.path(tempdir(), tarball)
-        download.file(remote_tarball, local_tarball)
+        utils::download.file(remote_tarball, local_tarball)
         utils::untar(local_tarball, exdir = tempdir())
 
         path <- file.path(tempdir(), package)
