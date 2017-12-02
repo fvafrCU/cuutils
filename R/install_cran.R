@@ -1,11 +1,13 @@
 #' Forced Installation of CRAN Packages
 #'
 #' \code{\link[utils:install.packages]{install.packages} will not let you
-#' install packages that require a higher R version as yours a that are speific
-#' to an operating system. \pkg{excerptr} is such a case. This function lets you
-#' install it anyways. Of course you have to deal with dependencies yourself
+#' install packages that require a higher R version as yours or that are
+#' specifica to an operating system. \pkg{excerptr} is such a case. 
+#' This function lets you such a packages anyways. 
+#' Of course you have to deal with dependencies yourself
 #' (\pkg{rPython}, in this case).
-#' @param repository The repository to use. Stick to the default, which is CRAN.
+#' @param repository The repository to use. 
+#' @param package The package's name.
 #' @param ignore_ostype Ignore operation system type required in the
 #' DESCRIPTION?
 #' @param ignore_r_version Ignore R version required in the DESCRIPTION?

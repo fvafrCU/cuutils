@@ -8,7 +8,9 @@ install_cran(package = "excerptr", repository = "http://cran.r-project.org",
   ignore_ostype = TRUE, ignore_r_version = TRUE)
 }
 \arguments{
-\item{repository}{The repository to use. Stick to the default, which is CRAN.}
+\item{package}{The package's name.}
+
+\item{repository}{The repository to use.}
 
 \item{ignore_ostype}{Ignore operation system type required in the
 DESCRIPTION?}

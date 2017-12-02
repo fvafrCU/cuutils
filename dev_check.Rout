@@ -1,18 +1,17 @@
 Updating cuutils documentation
 Loading cuutils
 Warning: @description [install_cran.R#1]: mismatched braces or quotes
-Writing NAMESPACE
 Writing install_cran.Rd
-Writing install_github.Rd
 Setting env vars --------------------------------------------------------------
 CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
 Building cuutils --------------------------------------------------------------
+  --no-resave-data --no-manual 
 
-* checking for file ‘/home/nik/git/cs/fvafrcu/cuutils/DESCRIPTION’ ... OK
+* checking for file ‘/home/qwer/git/cyclops/fvafrcu/cuutils/DESCRIPTION’ ... OK
 * preparing ‘cuutils’:
 * checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files
+* checking for LF line-endings in source and make files and shell scripts
 * checking for empty or unneeded directories
 * building ‘cuutils_0.0.0.9004.tar.gz’
 
@@ -21,9 +20,9 @@ _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
 _R_CHECK_CRAN_INCOMING_           : FALSE
 _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking cuutils --------------------------------------------------------------
-  --no-manual 
+  --as-cran --timings --no-manual 
 
-* using R version 3.3.3 (2017-03-06)
+* using R Under development (unstable) (2017-11-07 r73685)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using options ‘--no-manual --as-cran’
@@ -31,13 +30,7 @@ Checking cuutils --------------------------------------------------------------
 * this is package ‘cuutils’ version ‘0.0.0.9004’
 * package encoding: UTF-8
 * checking package namespace information ... OK
-* checking package dependencies ...Warning: unable to access index for repository https://bioconductor.org/packages/3.4/bioc/src/contrib:
-  cannot download all files
-Warning: unable to access index for repository https://bioconductor.org/packages/3.4/data/annotation/src/contrib:
-  cannot download all files
-Warning: unable to access index for repository https://bioconductor.org/packages/3.4/data/experiment/src/contrib:
-  cannot download all files
- NOTE
+* checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘Rd2roxygen’
 * checking if this is a source package ... OK
 * checking if there is a namespace ... OK
@@ -79,45 +72,27 @@ Consider adding
   importFrom("utils", "download.file")
 to your NAMESPACE file.
 * checking Rd files ... WARNING
-checkRd: (5) install_cran.Rd:0-21: Must have a \description
+checkRd: (5) install_cran.Rd:0-23: Must have a \description
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... OK
 * checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... WARNING
-Undocumented arguments in documentation object 'install_cran'
-  ‘package’
-
-Functions with \usage entries need to have the appropriate \alias
-entries, and all their arguments documented.
-The \usage entries must correspond to syntactically valid R code.
-See chapter ‘Writing R documentation files’ in the ‘Writing R
-Extensions’ manual.
+* checking Rd \usage sections ... OK
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
 * checking examples ... OK
 * DONE
 
-Status: 2 WARNINGs, 4 NOTEs
+Status: 1 WARNING, 4 NOTEs
 See
 for details.
 
 
 R CMD check results
-0 errors | 2 warnings | 4 notes
+0 errors | 1 warning  | 4 notes
 checking Rd files ... WARNING
-checkRd: (5) install_cran.Rd:0-21: Must have a \description
-
-checking Rd \usage sections ... WARNING
-Undocumented arguments in documentation object 'install_cran'
-  ‘package’
-
-Functions with \usage entries need to have the appropriate \alias
-entries, and all their arguments documented.
-The \usage entries must correspond to syntactically valid R code.
-See chapter ‘Writing R documentation files’ in the ‘Writing R
-Extensions’ manual.
+checkRd: (5) install_cran.Rd:0-23: Must have a \description
 
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘Rd2roxygen’
