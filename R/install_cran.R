@@ -8,6 +8,7 @@
 #' (\pkg{rPython}, in this case).
 #' @param repository The repository to use. 
 #' @param package The package's name.
+#' @param python Only evaluated if package is "rPython". Your python version. 
 #' @param ignore_ostype Ignore operation system type required in the
 #' DESCRIPTION?
 #' @param ignore_r_version Ignore R version required in the DESCRIPTION?
@@ -16,7 +17,13 @@
 install_cran <- function(package = "excerptr", 
                          repository = "http://cran.r-project.org",
                          ignore_ostype = TRUE, 
+                         python = switch(.Platform[["OS.type"]], 
+                                         windows = "C:/python/python34_x64", 
+                                         3.4),
                          ignore_r_version = TRUE) {
+    if (package == "rPython" && .Platform[["OS.type"]] != "windows") {
+        Sys.setenv(RPYTHON_PYTHON_VERSION = as.numeric(python))
+    }
     old_options <- options(warn = 2) 
     res <- tryCatch(utils::install.packages(package, repos = repository), 
                     error = identity) 
@@ -37,6 +44,15 @@ install_cran <- function(package = "excerptr",
         utils::untar(local_tarball, exdir = tempdir())
 
         path <- file.path(tempdir(), package)
+        if (package == "rPython" && .Platform[["OS.type"]] == "windows") {
+            configure <- file.path(path, "configure.win")
+            conf <- readLines(configure)
+            py_version <- sub("_x[468]{2}", "", basename(python))
+            conf <- sub("C:/([Pp]ython)27", python, conf)
+            conf <- sub("python27", py_version, conf)
+            writeLines(conf, configure)
+            if (! require("RJSONIO")) install.packages("RJSONIO")
+        }
         description <- file.path(path, "DESCRIPTION")
         d <- readLines(description)
         if (isTRUE(ignore_ostype)) d <- d[!grepl("^OS_type:", d)]
