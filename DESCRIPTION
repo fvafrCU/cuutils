@@ -9,7 +9,8 @@ Depends:
 Suggests: 
     roxygen2, 
     Rd2roxygen, 
-    testthat
+    testthat,
+    RJSONIO
 License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 Imports:

@@ -5,7 +5,8 @@
 \title{Forced Installation of CRAN Packages}
 \usage{
 install_cran(package = "excerptr", repository = "http://cran.r-project.org",
-  ignore_ostype = TRUE, ignore_r_version = TRUE)
+  ignore_ostype = TRUE, python = switch(.Platform[["OS.type"]], windows =
+  "C:/python/python34_x64", 3.4), ignore_r_version = TRUE)
 }
 \arguments{
 \item{package}{The package's name.}
@@ -15,8 +16,18 @@ install_cran(package = "excerptr", repository = "http://cran.r-project.org",
 \item{ignore_ostype}{Ignore operation system type required in the
 DESCRIPTION?}
 
+\item{python}{Only evaluated if package is "rPython". Your python version.}
+
 \item{ignore_r_version}{Ignore R version required in the DESCRIPTION?}
 }
 \value{
 The value of \code{\link[utils:install.packages]{install.packages}}.
+}
+\description{
+\code{\link[utils:install.packages]{install.packages}} will not let you
+install packages that require a higher R version as yours or that are
+specifica to an operating system. \pkg{excerptr} is such a case. 
+This function lets you such a packages anyways. 
+Of course you have to deal with dependencies yourself
+(\pkg{rPython}, in this case).
 }
