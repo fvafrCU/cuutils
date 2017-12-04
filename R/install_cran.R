@@ -1,3 +1,13 @@
+check_python_version <- function(python) {
+    reference = "3"
+    status <- TRUE
+    pyver <- unlist(strsplit(system2(python, "-V", stdout = TRUE), 
+                             split = " "))[2]
+    if (compareVersion(pyver, reference) < 0) {
+        warning("excerptr needs python version ", reference, ".")
+        status  <- FALSE}
+    return(status)
+}
 #' Forced Installation of CRAN Packages
 #'
 #' \code{\link[utils:install.packages]{install.packages}} will not let you
@@ -19,10 +29,12 @@ install_cran <- function(package = "excerptr",
                          ignore_ostype = TRUE, 
                          python = switch(.Platform[["OS.type"]], 
                                          windows = "C:/python/python34_x64", 
-                                         3.4),
+                                         Sys.which("python3")),
                          ignore_r_version = TRUE) {
     if (package == "rPython" && .Platform[["OS.type"]] != "windows") {
-        Sys.setenv(RPYTHON_PYTHON_VERSION = as.numeric(python))
+        Sys.setenv(RPYTHON_PYTHON_VERSION = as.numeric(sub("^python", "",
+                                                           basename(python))))
+        check_python_version(python)
     }
     old_options <- options(warn = 2) 
     res <- tryCatch(utils::install.packages(package, repos = repository), 
@@ -45,11 +57,12 @@ install_cran <- function(package = "excerptr",
 
         path <- file.path(tempdir(), package)
         if (package == "rPython" && .Platform[["OS.type"]] == "windows") {
+            check_python_version(python)
             configure <- file.path(path, "configure.win")
             conf <- readLines(configure)
-            py_version <- sub("_x[468]{2}", "", basename(python))
+            py_path_part <- sub("_x[468]{2}", "", basename(python))
             conf <- sub("C:/([Pp]ython)27", python, conf)
-            conf <- sub("python27", py_version, conf)
+            conf <- sub("python27", py_path_part, conf)
             writeLines(conf, configure)
             if (! require("RJSONIO")) install.packages("RJSONIO")
         }
