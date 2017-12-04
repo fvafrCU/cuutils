@@ -1,11 +1,14 @@
 check_python_version <- function(python) {
     reference = "3"
     status <- TRUE
-    pyver <- unlist(strsplit(system2(python, "-V", stdout = TRUE), 
-                             split = " "))[2]
+    pyver <- tryCatch(system2(python, "-V", stdout = TRUE), error = identity)
+    if (inherits(pyver, "error"))
+        pyver <- system2(file.path(python, "python.exe", "-V", stdout = TRUE))
+    pyver <- unlist(strsplit(pyver, split = " "))[2]
     if (compareVersion(pyver, reference) < 0) {
         warning("excerptr needs python version ", reference, ".")
-        status  <- FALSE}
+        status  <- FALSE
+    }
     return(status)
 }
 #' Forced Installation of CRAN Packages
