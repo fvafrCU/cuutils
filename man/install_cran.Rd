@@ -4,9 +4,10 @@
 \alias{install_cran}
 \title{Forced Installation of CRAN Packages}
 \usage{
-install_cran(package = "excerptr", repository = "http://cran.r-project.org",
+install_cran(package, repository = "http://cran.r-project.org",
   ignore_ostype = TRUE, python = switch(.Platform[["OS.type"]], windows =
-  "C:/python/python34_x64", 3.4), ignore_r_version = TRUE)
+  "C:/python/python34_x64/python.exe", Sys.which("python3")),
+  ignore_r_version = TRUE)
 }
 \arguments{
 \item{package}{The package's name.}
@@ -16,7 +17,8 @@ install_cran(package = "excerptr", repository = "http://cran.r-project.org",
 \item{ignore_ostype}{Ignore operation system type required in the
 DESCRIPTION?}
 
-\item{python}{Only evaluated if package is "rPython". Your python version.}
+\item{python}{Only evaluated if package is "rPython". Path to your python
+version.}
 
 \item{ignore_r_version}{Ignore R version required in the DESCRIPTION?}
 }
