@@ -1,16 +1,15 @@
 check_python_version <- function(python) {
-    reference = "3"
-    status <- TRUE
-    pyver <- tryCatch(system2(python, "-V", stdout = TRUE), error = identity)
-    if (inherits(pyver, "error"))
-        pyver <- system2(file.path(python, "python.exe"), "-V", stdout = TRUE)
+    reference <- "3"
+    # python 3 reports version to stdout, python2 to stderr...
+    pyver <- system2(python, "-V", stdout = TRUE, stderr = TRUE)
     pyver <- unlist(strsplit(pyver, split = " "))[2]
     if (compareVersion(pyver, reference) < 0) {
-        warning("excerptr needs python version ", reference, ".")
-        status  <- FALSE
+        warning("Package `excerptr` needs python version ", reference, ".")
     }
-    return(status)
+    pyver <- unlist(strsplit(pyver, split = "\\."))
+    return(pyver)
 }
+
 #' Forced Installation of CRAN Packages
 #'
 #' \code{\link[utils:install.packages]{install.packages}} will not let you
@@ -21,23 +20,24 @@ check_python_version <- function(python) {
 #' (\pkg{rPython}, in this case).
 #' @param repository The repository to use. 
 #' @param package The package's name.
-#' @param python Only evaluated if package is "rPython". Your python version. 
+#' @param python Only evaluated if package is "rPython". Path to your python
+#' version.
 #' @param ignore_ostype Ignore operation system type required in the
 #' DESCRIPTION?
 #' @param ignore_r_version Ignore R version required in the DESCRIPTION?
 #' @return The value of \code{\link[utils:install.packages]{install.packages}}.
 #' @export 
-install_cran <- function(package = "excerptr", 
+install_cran <- function(package, 
                          repository = "http://cran.r-project.org",
                          ignore_ostype = TRUE, 
                          python = switch(.Platform[["OS.type"]], 
-                                         windows = "C:/python/python34_x64", 
+                                         windows = "C:/python/python34_x64/python.exe", 
                                          Sys.which("python3")),
                          ignore_r_version = TRUE) {
     if (package == "rPython" && .Platform[["OS.type"]] != "windows") {
-        Sys.setenv(RPYTHON_PYTHON_VERSION = as.numeric(sub("^python", "",
-                                                           basename(python))))
-        check_python_version(python)
+        pyver <- check_python_version(python)
+        if (length(pyver) >= 2) pyver <- paste(pyver[1:2], collapse = ".")
+        Sys.setenv(RPYTHON_PYTHON_VERSION = as.numeric(pyver))
     }
     old_options <- options(warn = 2) 
     res <- tryCatch(utils::install.packages(package, repos = repository), 
@@ -60,12 +60,12 @@ install_cran <- function(package = "excerptr",
 
         path <- file.path(tempdir(), package)
         if (package == "rPython" && .Platform[["OS.type"]] == "windows") {
-            check_python_version(python)
+            pyver <- check_python_version(python)
+            if (length(pyver) >= 2) pyver <- paste(pyver[1:2], collapse = "")
             configure <- file.path(path, "configure.win")
             conf <- readLines(configure)
-            py_path_part <- sub("_x[468]{2}", "", basename(python))
-            conf <- sub("C:/([Pp]ython)27", python, conf)
-            conf <- sub("python27", py_path_part, conf)
+            conf <- sub("C:/[Pp]ython27", dirname(python), conf)
+            conf <- sub("(python)27", paste0("\\1", pyver), conf)
             writeLines(conf, configure)
             if (! require("RJSONIO")) install.packages("RJSONIO")
         }
