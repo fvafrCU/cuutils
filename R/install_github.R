@@ -8,11 +8,12 @@
 #' @param ignore_ostype Ignore operation system type required in the
 #' DESCRIPTION?
 #' @param ignore_r_version Ignore R version required in the DESCRIPTION?
+#' @param force Force even if not on windows?
 #' @return The value of \code{\link[utils:install.packages]{install.packages}}.
 #' @export 
 install_github <- function(github_repo, ignore_ostype = TRUE, 
-                           ignore_r_version = TRUE) {
-    if (.Platform$OS.type != "windows") {
+                           ignore_r_version = TRUE, force = TRUE) {
+    if (.Platform$OS.type != "windows" && ! isTRUE(force)) {
         res <- devtools::install_github(github_repo)
     } else {
         old_wd <- setwd(tempdir())
@@ -22,7 +23,12 @@ install_github <- function(github_repo, ignore_ostype = TRUE,
         local_path <- file.path(local_directory, "master.zip")
         url <- paste0("https://github.com/", github_repo, 
                       "/archive/master.zip")
-        utils::download.file(url, local_path, method = "wininet", mode = "wb")
+        if (identical(.Platform$OS.type, "windows")) {
+            utils::download.file(url, local_path, method = "wininet", 
+                                 mode = "wb")
+        } else {
+            utils::download.file(url, local_path, method = "wget")
+        }
         utils::unzip(local_path, exdir = local_directory)
         path <- file.path(local_directory, paste0(repo[2], "-master"))
         description <- file.path(path, "DESCRIPTION")

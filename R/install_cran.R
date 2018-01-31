@@ -14,7 +14,7 @@ check_python_version <- function(python) {
 #'
 #' \code{\link[utils:install.packages]{install.packages}} will not let you
 #' install packages that require a higher R version as yours or that are
-#' specifica to an operating system. \pkg{excerptr} is such a case. 
+#' specific to an operating system. \pkg{excerptr} is such a case. 
 #' This function lets you such a packages anyways. 
 #' Of course you have to deal with dependencies yourself
 #' (\pkg{rPython}, in this case).

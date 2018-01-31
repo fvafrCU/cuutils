@@ -1,36 +1,39 @@
 Updating cuutils documentation
 Loading cuutils
-Warning: @description [install_cran.R#1]: mismatched braces or quotes
-Writing install_cran.Rd
 Setting env vars --------------------------------------------------------------
 CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
 Building cuutils --------------------------------------------------------------
-  --no-resave-data --no-manual 
 
-* checking for file ‘/home/qwer/git/cyclops/fvafrcu/cuutils/DESCRIPTION’ ... OK
+* checking for file ‘/home/nik/git/cs/fvafrcu/cuutils/DESCRIPTION’ ... OK
 * preparing ‘cuutils’:
 * checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files and shell scripts
+* checking for LF line-endings in source and make files
 * checking for empty or unneeded directories
-* building ‘cuutils_0.0.0.9004.tar.gz’
+* building ‘cuutils_0.0.0.9005.tar.gz’
 
 Setting env vars --------------------------------------------------------------
 _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
 _R_CHECK_CRAN_INCOMING_           : FALSE
 _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking cuutils --------------------------------------------------------------
-  --as-cran --timings --no-manual 
+  --no-manual 
 
-* using R Under development (unstable) (2017-11-07 r73685)
+* using R version 3.3.3 (2017-03-06)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using options ‘--no-manual --as-cran’
 * checking for file ‘cuutils/DESCRIPTION’ ... OK
-* this is package ‘cuutils’ version ‘0.0.0.9004’
+* this is package ‘cuutils’ version ‘0.0.0.9005’
 * package encoding: UTF-8
 * checking package namespace information ... OK
-* checking package dependencies ... NOTE
+* checking package dependencies ...Warning: unable to access index for repository https://bioconductor.org/packages/3.4/bioc/src/contrib:
+  cannot download all files
+Warning: unable to access index for repository https://bioconductor.org/packages/3.4/data/annotation/src/contrib:
+  cannot download all files
+Warning: unable to access index for repository https://bioconductor.org/packages/3.4/data/experiment/src/contrib:
+  cannot download all files
+ NOTE
 Package suggested but not available for checking: ‘Rd2roxygen’
 * checking if this is a source package ... OK
 * checking if there is a namespace ... OK
@@ -60,19 +63,24 @@ Non-standard file/directory found at top level:
 * checking whether the namespace can be loaded with stated dependencies ... OK
 * checking whether the namespace can be unloaded cleanly ... OK
 * checking loading without being on the library search path ... OK
-* checking dependencies in R code ... OK
+* checking dependencies in R code ... NOTE
+'library' or 'require' call to ‘RJSONIO’ in package code.
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
-install_cran: no visible global function definition for ‘download.file’
+check_python_version: no visible global function definition for
+  ‘compareVersion’
+install_cran: no visible global function definition for
+  ‘install.packages’
 Undefined global functions or variables:
-  download.file
+  compareVersion install.packages
 Consider adding
-  importFrom("utils", "download.file")
+  importFrom("utils", "compareVersion", "install.packages")
 to your NAMESPACE file.
-* checking Rd files ... WARNING
-checkRd: (5) install_cran.Rd:0-23: Must have a \description
+* checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
 * checking Rd cross-references ... OK
@@ -84,16 +92,13 @@ checkRd: (5) install_cran.Rd:0-23: Must have a \description
 * checking examples ... OK
 * DONE
 
-Status: 1 WARNING, 4 NOTEs
+Status: 5 NOTEs
 See
 for details.
 
 
 R CMD check results
-0 errors | 1 warning  | 4 notes
-checking Rd files ... WARNING
-checkRd: (5) install_cran.Rd:0-23: Must have a \description
-
+0 errors | 0 warnings | 5 notes
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘Rd2roxygen’
 
@@ -107,10 +112,18 @@ checking top-level files ... NOTE
 Non-standard file/directory found at top level:
   ‘TODO.md’
 
+checking dependencies in R code ... NOTE
+'library' or 'require' call to ‘RJSONIO’ in package code.
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+
 checking R code for possible problems ... NOTE
-install_cran: no visible global function definition for ‘download.file’
+check_python_version: no visible global function definition for
+  ‘compareVersion’
+install_cran: no visible global function definition for
+  ‘install.packages’
 Undefined global functions or variables:
-  download.file
+  compareVersion install.packages
 Consider adding
-  importFrom("utils", "download.file")
+  importFrom("utils", "compareVersion", "install.packages")
 to your NAMESPACE file.

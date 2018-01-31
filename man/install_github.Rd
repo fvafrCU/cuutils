@@ -4,7 +4,8 @@
 \alias{install_github}
 \title{Install Packages From Github at FVAFR}
 \usage{
-install_github(github_repo, ignore_ostype = TRUE, ignore_r_version = TRUE)
+install_github(github_repo, ignore_ostype = TRUE, ignore_r_version = TRUE,
+  force = TRUE)
 }
 \arguments{
 \item{github_repo}{A string of form "user/repo", "hadley/devtools" for
@@ -14,6 +15,8 @@ example.}
 DESCRIPTION?}
 
 \item{ignore_r_version}{Ignore R version required in the DESCRIPTION?}
+
+\item{force}{Force even if not on windows?}
 }
 \value{
 The value of \code{\link[utils:install.packages]{install.packages}}.
