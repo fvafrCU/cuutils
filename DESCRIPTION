@@ -5,7 +5,7 @@ Authors@R: person(given = c("Andreas", "Dominik"), family = "Cullmann",
     email = "adc-r@arcor.de", role = c("aut","cre"))
 Description: Bits and pieces I didn't find a serious place to put to.
 Depends:
-    R (>= 3.3.1)
+    R (>= 3.3.0)
 Suggests: 
     roxygen2, 
     Rd2roxygen, 
