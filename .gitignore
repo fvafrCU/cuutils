@@ -1,8 +1,0 @@
-tmp*
-\.*\.swp
-.Rproj.user
-.Rhistory
-.RData
-*\.Rcheck
-*\.tar\.gz
-package_tools
